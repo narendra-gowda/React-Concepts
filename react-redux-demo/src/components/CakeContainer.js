@@ -13,7 +13,7 @@ function CakeContainer(props){
 //The below fucntion is similar to store.getState()
 const mapStateToProps = (state) =>{
   return {
-    numOfCakes: state.numOfCakes //Creating a props for CakeContainer, which is mapped with state from redux store
+    numOfCakes: state.cake.numOfCakes //Creating a props for CakeContainer, which is mapped with state from redux store
   }
 }
 //The below function is similar to store.dispatch(action())
