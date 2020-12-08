@@ -6,17 +6,19 @@ import CakeContWithHooks from './components/CakeContWithHooks';
 import IceCreamComponent from './components/IceCreamComponent';
 import CakeActionPayload from './components/CakeActionPayload';
 import MapStateToPropsComp from './components/MapStateToPropsComp';
+import AsyncContainer from './components/AsyncContainer';
 
 function App() {
   return ( //Keeping Provider on top will provide the store to all the components in the APP tree
     <Provider store = {store}> 
       <div className="App">
-        <CakeContainer />
+        {/* <CakeContainer />
         <CakeContWithHooks />
         <IceCreamComponent/>
         <CakeActionPayload />
         <MapStateToPropsComp cake/>
-        <MapStateToPropsComp />
+        <MapStateToPropsComp /> */}
+        <AsyncContainer />
       </div>
     </Provider>
   );
