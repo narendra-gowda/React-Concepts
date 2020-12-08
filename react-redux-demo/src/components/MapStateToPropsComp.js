@@ -1,11 +1,13 @@
 import {connect} from 'react-redux';
+import { buyCake } from '../redux/cake/CakeAction';
 import buyIcecream from '../redux/iceCream/IceCreamAction';
 
-function MapStateToPropsComp(ownProps){
+function MapStateToPropsComp(props){
   return(
     <div>
       <p>Passing second parameter to mapStateToProps, This props belongs to the component itself</p>
-  <h2>Item {ownProps.name} - {ownProps.item}</h2>
+  <h2>Item {props.name} - {props.item}</h2>
+  <button onClick={props.buyItem}>Buy Item</button>
     </div>
   )
 }
@@ -17,4 +19,10 @@ const mapStateToProps = (state, ownProps) => {
     name: itemName
   }
 }
-export default connect(mapStateToProps)(MapStateToPropsComp);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const dispatchFunc = ownProps.cake ? () => dispatch(buyCake()) : () => dispatch(buyIcecream())
+  return{
+    buyItem: dispatchFunc
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(MapStateToPropsComp);
